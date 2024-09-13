@@ -23,6 +23,7 @@
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 100;
 }
 
 .navbar__company_info {
@@ -104,7 +105,7 @@
   .navbar__hamburger {
     display: none;
   }
-  
+
   .navbar {
     padding-left: 40px;
     padding-right: 40px;
