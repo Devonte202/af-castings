@@ -1,0 +1,74 @@
+.comp_card {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 350px;
+  padding: 25px;
+  border: 1px solid lightgray;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.comp_card__identity {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.comp_card__identity__name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.comp_card__identity__age {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: gray;
+}
+
+.comp_card__identity__location {
+  font-size: 1rem;
+  color: gray;
+}
+
+.comp_card__carousel_controls {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.comp_card__carousel_controls button {
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  fill: black;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.comp_card__carousel {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: lightgray;
+}
+
+.comp_card__carousel__image {
+  aspect-ratio: 5/5;
+}
+
+.comp_card__carousel__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.comp_card__bio_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: 1rem;
+  font-size: small;
+}

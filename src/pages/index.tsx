@@ -1,27 +1,24 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { useLiveQuery } from 'next-sanity/preview'
 
-import Card from '~/components/Card'
-import Container from '~/components/Container'
-import Welcome from '~/components/Welcome'
+import CompCard from '~/components/CompCard.tsx'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
+import { getModels, type Model } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
 export const getStaticProps: GetStaticProps<
   SharedPageProps & {
-    posts: Post[]
+    models: Model[]
   }
 > = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
-  const posts = await getPosts(client)
+  const models = await getModels(client)
 
   return {
     props: {
       draftMode,
       token: draftMode ? readToken : '',
-      posts,
+      models,
     },
   }
 }
@@ -29,16 +26,28 @@ export const getStaticProps: GetStaticProps<
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
+  const { models } = props
+console.log(models)
   return (
-    <Container>
-      <section>
-        {posts.length ? (
-          posts.map((post) => <Card key={post._id} post={post} />)
-        ) : (
-          <Welcome />
-        )}
-      </section>
-    </Container>
+    <div>
+        {models.map((model) => (
+          <div key={model._id}>
+            <CompCard
+              name={model.fullName}
+              age={model.age}
+              race={model.race}
+              height={model.height}
+              bust={model.bust}
+              waist={model.waist}
+              hips={model.hips}
+              shoeSize={model.shoeSize}
+              hairColor={model.hairColor}
+              eyeColor={model.eyeColor}
+              images={model.images}
+              location={model.location}
+            />
+          </div>
+        ))}
+    </div>
   )
 }
