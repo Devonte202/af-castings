@@ -1,0 +1,25 @@
+.feature_models {
+  display: flex;
+  flex-direction: column;
+  background-color: #ededed;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.model_carousel {
+  display: flex;
+  padding: 30px;
+  gap: 50px;
+  width: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.section_title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 40px;
+  text-align: center;
+}

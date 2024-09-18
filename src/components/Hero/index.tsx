@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { use, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { getClient } from '~/lib/sanity.client'
 import { getModels, type Model } from '~/lib/sanity.queries'
