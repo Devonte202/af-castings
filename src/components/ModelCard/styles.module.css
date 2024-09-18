@@ -17,11 +17,11 @@
 }
 
 .model_card {
-  height: 350px;
+  height: 250px;
   border-radius: 8px;
-  width: 250px;
-  min-width: 250px;
-  max-width: 250px;
+  width: 175px;
+  min-width: 175px;
+  max-width: 175px;
   animation: slide 25s linear infinite;
 }
 
@@ -50,7 +50,8 @@
 }
 
 .model_description {
-  margin: 8px 0;
+  font-size: 12px;
+  margin: 4px 0;
 }
 
 .model_description:first-child {
@@ -60,4 +61,18 @@
 
 .model_info {
   display: none;
+}
+
+@media (min-width: 744px) {
+  .model_card {
+    height: 350px;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+  }
+
+  .model_description {
+    margin: 8px 0;
+    font-size: initial;
+  }
 }

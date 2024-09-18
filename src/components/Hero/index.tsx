@@ -14,7 +14,7 @@ function Hero () {
   const fetchModels = async () => {
     const client = getClient()
     const models = await getModels(client)
-    setModels([...models, ...models, ...models])
+    setModels(models)
   }
 
   const getRandomModelImage = (model: Model) => {
@@ -36,7 +36,7 @@ function Hero () {
 
     const generateHeroImages = (models: Model[]) => {
       const images = []
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 5; i++) {
         const model = getRandomModel(models)
         images.push(getRandomModelImage(model))
       }

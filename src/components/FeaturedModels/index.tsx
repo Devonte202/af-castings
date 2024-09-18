@@ -1,5 +1,4 @@
 'use client'
-import Image from 'next/image'
 import { useEffect,useState } from 'react'
 
 import ModelCard  from '~/components/ModelCard'
@@ -14,17 +13,12 @@ function FeaturedModels() {
   const fetchModels = async () => {
     const client = getClient()
     const models = await getModels(client)
-    setModels(models)
+    setModels([...models, ...models, ...models])
   }
   
   useEffect(() => {
     fetchModels()
   }, [])
-
-  useEffect(() => {
-    console.log(models)
-  } ,[models])
-
 
   return (
     <div className={styles.feature_models}>
