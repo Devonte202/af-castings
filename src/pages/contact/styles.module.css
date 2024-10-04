@@ -1,0 +1,126 @@
+@keyframes fadeIn{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.page_hero {
+  background-color: #ededed;
+  padding: 80px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page_ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.page_cta {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  will-change: transform;
+  text-transform: uppercase;
+}
+
+.page_cta:disabled {
+  pointer-events: none;
+}
+
+.page_cta:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+
+.page_cta:active {
+  box-shadow: none;
+}
+
+.page_contact_info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.page_socials {
+  display: flex;
+  gap: 24px;
+}
+
+.form_container {
+  width: 100%;
+  max-width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  z-index: 2;
+  animation: slideInFromLeft 0.5s ease-in-out forwards;
+}
+
+.form_screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background: rgba(42, 42, 42, 0.309);
+  z-index: 1;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.form_close {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.form_close:hover {
+  cursor: pointer;
+  
+}
