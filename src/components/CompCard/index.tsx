@@ -5,7 +5,7 @@ import { useState } from "react"
 import styles from "./styles.module.css"
 
 type CompCardProps = {
-  name: string;
+  fullName: string;
   age: number;
   race: string;
   height: string;
@@ -20,7 +20,7 @@ type CompCardProps = {
 }
 
 const CompCard = ({
-  name,
+  fullName,
   age,
   race,
   height,
@@ -46,7 +46,7 @@ const CompCard = ({
   return (
     <div className={styles.comp_card}>
       <div className={styles.comp_card__identity}>
-        <div className={styles.comp_card__identity__name}>{name}</div>
+        <div className={styles.comp_card__identity__name}>{fullName}</div>
         <div className={styles.comp_card__identity__age}>Age: {age}</div>
         <div className={styles.comp_card__identity__location}>{location}</div>
       </div>
