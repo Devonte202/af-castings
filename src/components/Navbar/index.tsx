@@ -24,9 +24,10 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={styles.navbar__links}>
+        <Link className={styles.navbar__link} href="/">Home</Link>
+        <Link className={styles.navbar__link} href="/models">Models</Link>
         <Link className={styles.navbar__link} href="/about">About</Link>
         <Link className={styles.navbar__link} href="/contact">Contact</Link>
-        <Link className={styles.navbar__link} href="/models">Models</Link>
       </div>
       { isOpen && (
         <div className={styles.navbar__sidebar}>
@@ -39,9 +40,10 @@ const Navbar = () => {
             </button>
           </div>
           <div className={styles.navbar__mobilelinks}>
+          <Link className={styles.navbar__link} href="/">Home</Link>
+            <Link className={styles.navbar__link} href="/models">Models</Link>
             <Link className={styles.navbar__link} href="/about">About</Link>
             <Link className={styles.navbar__link} href="/contact">Contact</Link>
-            <Link className={styles.navbar__link} href="/models">Models</Link>
           </div>
         </div>
       )}

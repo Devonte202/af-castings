@@ -5,7 +5,7 @@ import FormGroup from '@mui/material/FormGroup'
 import MenuItem from '@mui/material/MenuItem'
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Slider from '@mui/material/Slider'
-import React, {useEffect, useState} from 'react'
+import React, {use, useEffect, useState} from 'react'
 
 import cities from '~/constants/cities'
 
@@ -138,6 +138,16 @@ const SortFilterLayout = ({ children, search, filterModels }: SortFilterLayoutPr
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, search])
+
+  useEffect(() => {
+    const screenSize = window.innerWidth
+
+    if (screenSize < 768) {
+      setShowFilters(false)
+    } else {
+      setShowFilters(true)
+    }
+  }, [])
 
   return (
     <div className={styles.filter_layout}>
