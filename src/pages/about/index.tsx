@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
         </p>
           <h2>Meet Our CEO</h2>
           <Image
-            src={aboutInfo.profileImage.image}
+            src={aboutInfo?.profileImage.image}
             alt="CEO"
             width={200}
             height={200}
