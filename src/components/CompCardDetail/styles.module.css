@@ -22,15 +22,20 @@
 .comp_card_modal {
   border-radius: 1rem;
   padding: 40px;
+
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
   z-index: 2;
-  max-height: 70vh;
-  max-width: 80vw;
   animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.comp_card_modal__info__name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .comp_card_modal_images {
@@ -124,7 +129,6 @@
 @media (max-width: 500px) {
   .comp_card_modal__info__text {
     font-size: .9rem;
-    text-align: center;
   }
   .comp_card_modal {
     max-width: 100vw;
