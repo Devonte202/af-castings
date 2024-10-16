@@ -57,6 +57,12 @@
 
 .comp_card__carousel__image {
   aspect-ratio: 5/5;
+  cursor: pointer;
+}
+
+.comp_card__carousel__image:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 
 .comp_card__carousel__image img {

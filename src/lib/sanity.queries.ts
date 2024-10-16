@@ -7,6 +7,7 @@ export interface Model {
   fullName: string
   age: number
   race: string
+  gender: string
   images: string[]
   height: string
   bust: string
@@ -18,11 +19,22 @@ export interface Model {
   location: string
 }
 
+export interface About {
+  _type: 'about'
+  agencyDescription: string
+  profileImage: {
+    image: string,
+  }
+  ceoDescription: string
+}
+
 export async function getModels(client: SanityClient): Promise<Model[]> {
   return await client.fetch(groq`*[_type == "model"]{
+  _id,
   fullName,
   age,
   race,
+  gender,
   "images": images[].asset->url,
   height,
   bust,
@@ -32,5 +44,13 @@ export async function getModels(client: SanityClient): Promise<Model[]> {
   hairColor,
   eyeColor,
   location
+}`)
+}
+
+export async function getAbout(client: SanityClient): Promise<About> {
+  return await client.fetch(groq`*[_type == "about"][0]{
+  agencyDescription,
+  profileImage {"image": asset->url},
+  ceoDescription
 }`)
 }

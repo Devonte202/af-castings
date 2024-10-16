@@ -19,7 +19,9 @@ const Navbar = () => {
         <Link href="/" className={styles.navbar__logo}>
           <Image className={styles.navbar__logo_img} src="/af-castings-logo.jpg" alt="logo" height={150} width={150}/>
         </Link>
-        <h1 className={styles.navbar__title} >AF Castings</h1>
+        <Link href="/">
+          <h1 className={styles.navbar__title} >AF Castings</h1>
+        </Link>
       </div>
       <div className={styles.navbar__links}>
         <Link className={styles.navbar__link} href="/about">About</Link>

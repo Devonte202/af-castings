@@ -6,9 +6,9 @@ interface ContactFormProps {
   form: string
 }
 
-const formLinks = {
-  ROSTER_FORM: 'https://docs.google.com/forms/d/e/1FAIpQLSdKs8nuMoAeDddMB2IYjpfS1UcKiYL2cW1aWyOmL7RCmx31xA/viewform?embedded=true',
-  PRODUCTION_FORM: 'https://docs.google.com/forms/d/e/1FAIpQLSd18gBh2Omzk2Z8KDtp-n4TaPvDVyviY8AZAktfJ_O77PegRQ/viewform?embedded=true',
+export const formLinks = {
+  ROSTER_FORM: 'https://docs.google.com/forms/d/e/1FAIpQLSdKs8nuMoAeDddMB2IYjpfS1UcKiYL2cW1aWyOmL7RCmx31xA/viewform',
+  PRODUCTION_FORM: 'https://docs.google.com/forms/d/e/1FAIpQLSd18gBh2Omzk2Z8KDtp-n4TaPvDVyviY8AZAktfJ_O77PegRQ/viewform',
 }
 
 export const forms = {

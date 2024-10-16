@@ -1,0 +1,140 @@
+@keyframes fadeIn{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.comp_card_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background: rgba(42, 42, 42, 0.309);
+  z-index: 1;
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+.comp_card_modal {
+  border-radius: 1rem;
+  padding: 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  z-index: 2;
+  max-height: 70vh;
+  max-width: 80vw;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.comp_card_modal_images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.comp_card_modal_images__image {
+  width: 200px;
+  aspect-ratio: 3/5;
+}
+
+.comp_card_modal_images__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  
+}
+
+.modal_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: gray;
+  z-index: 100;
+  background-color: transparent;
+  border: none;
+}
+
+.comp_card_modal__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 1rem;
+  font-size: small;
+}
+
+.comp_card_modal__info__text {
+  font-size: 1rem;
+}
+
+.comp_card__carousel_controls {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.comp_card__carousel_controls button {
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  fill: black;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.comp_card__carousel {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: lightgray;
+}
+
+.comp_card__carousel__image {
+  aspect-ratio: 5/5;
+}
+
+.comp_card__carousel__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.comp_card_modal_carousel {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .comp_card_modal_carousel {
+    display: none;
+  }
+  .comp_card_modal_images {
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .comp_card_modal__info__text {
+    font-size: .9rem;
+    text-align: center;
+  }
+  .comp_card_modal {
+    max-width: 100vw;
+  }
+
+  .comp_card_modal_carousel {
+    display: block;
+  }
+
+  .comp_card_modal_images {
+    display: none;
+  }
+}

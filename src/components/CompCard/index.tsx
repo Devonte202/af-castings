@@ -2,53 +2,61 @@
 import Image from "next/image"
 import { useState } from "react"
 
+import CompCardDetail from "../CompCardDetail"
 import styles from "./styles.module.css"
 
 type CompCardProps = {
-  name: string;
-  age: number;
-  race: string;
-  height: string;
-  bust: string;
-  waist: string;
-  hips: string;
-  shoeSize: string;
-  hairColor: string;
-  eyeColor: string;
-  images: string[];
-  location: string;
+  model: {
+    fullName: string;
+    age: number;
+    race: string;
+    height: string;
+    bust: string;
+    waist: string;
+    hips: string;
+    shoeSize: string;
+    hairColor: string;
+    eyeColor: string;
+    images: string[];
+    location: string;
+    gender: string;
+  }
 }
 
-const CompCard = ({
-  name,
-  age,
-  race,
-  height,
-  bust,
-  waist,
-  hips,
-  shoeSize,
-  hairColor,
-  eyeColor,
-  images,
-  location,
-}: CompCardProps) => {
+const CompCard = ({model}: CompCardProps) => {
   const [currentImage, setCurrentImage] = useState(0)
+  const [showModal, setShowModal] = useState(false)
 
   const nextImage = () => {
-    setCurrentImage((currentImage + 1) % images.length)
+    setCurrentImage((currentImage + 1) % model.images.length)
   }
 
   const prevImage = () => {
-    setCurrentImage((currentImage - 1 + images.length) % images.length)
+    setCurrentImage((currentImage - 1 + model.images.length) % model.images.length)
+  }
+
+  const handleOpenModal = () => {
+    setShowModal(true)
+    if (typeof window != 'undefined' && window.document) {
+      document.body.style.overflow = 'hidden'
+    }
+  }
+
+  const handleCloseModal = (e: any) => {
+    e.stopPropagation()
+    setShowModal(false)
+    if (typeof window != 'undefined' && window.document) {
+      document.body.style.overflow = 'unset'
+    }
   }
 
   return (
     <div className={styles.comp_card}>
+      {showModal && <CompCardDetail model={model} toggleModal={handleCloseModal} />}
       <div className={styles.comp_card__identity}>
-        <div className={styles.comp_card__identity__name}>{name}</div>
-        <div className={styles.comp_card__identity__age}>Age: {age}</div>
-        <div className={styles.comp_card__identity__location}>{location}</div>
+        <div className={styles.comp_card__identity__name}>{model.fullName.split(' ')[0]}</div>
+        <div className={styles.comp_card__identity__age}>Age: {model.age}</div>
+        <div className={styles.comp_card__identity__location}>{model.location}</div>
       </div>
       <div className={styles.comp_card__carousel_controls}>
         <button onClick={nextImage} className={styles.comp_card__carousel_controls__prev}>
@@ -59,19 +67,9 @@ const CompCard = ({
         </button>
       </div>
       <div className={styles.comp_card__carousel}>
-        <div className={styles.comp_card__carousel__image}>
-          <Image src={images[currentImage]} alt="" width={500} height={500}/>
+        <div className={styles.comp_card__carousel__image} onClick={handleOpenModal}>
+          <Image src={model.images[currentImage]} alt="" width={500} height={500}/>
         </div>
-      </div>
-      <div className={styles.comp_card__bio_info}>
-        <div>Height: {height}</div>
-        <div>Bust: {bust}</div>
-        <div>Waist: {waist}</div>
-        <div>Hips: {hips}</div>
-        <div>Shoe size: {shoeSize}</div>
-        <div>Hair color: {hairColor}</div>
-        <div>Eye color: {eyeColor}</div>
-        <div>Race: {race}</div>
       </div>
     </div>
   )
