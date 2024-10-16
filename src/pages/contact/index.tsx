@@ -1,22 +1,23 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useState } from 'react'
 
-import {ContactForm, forms} from "~/components/ContactForm"
+import {formLinks} from "~/components/ContactForm"
 import Layout from "~/components/Layout"
 
 import styles from './styles.module.css'
 
 const ContactPage: React.FC = () => {
 
-  const [activeForm, setActiveForm] = useState(undefined)
+  // const [activeForm, setActiveForm] = useState(undefined)
 
   return (
     <Layout>
       <div className={styles.page_hero}>
         <h1 className={styles.page_title}>Contact Us</h1>
         <div className={styles.page_ctas}>
-          <button onClick={() => setActiveForm(forms.ROSTER_FORM)} className={styles.page_cta}>Become a model</button>
-          <button onClick={() => setActiveForm(forms.PRODUCTION_FORM)} className={styles.page_cta}>Cast a production</button>
+          <button className={styles.page_cta}><Link href={formLinks.ROSTER_FORM} target='_blank'>Become a model</Link></button>
+          <button className={styles.page_cta}><Link href={formLinks.PRODUCTION_FORM} target='_blank'>Cast a production</Link></button>
         </div>
         <div className={styles.page_contact_info}>
           <p className={styles.page_contact_text}>afcastingsinfo@gmail.com</p>
@@ -30,7 +31,7 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </div>
-      {activeForm && (<div className={styles.form_screen}></div>)}
+      {/* {activeForm && (<div className={styles.form_screen}></div>)}
       {activeForm && (
         <div className={styles.form_container}>
           <button className={styles.form_close} onClick={() => setActiveForm(undefined)}>
@@ -38,7 +39,7 @@ const ContactPage: React.FC = () => {
           </button>
           <ContactForm form={forms[activeForm]} />
         </div>
-      )}
+      )} */}
     </Layout>
   )
 }

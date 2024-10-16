@@ -1,3 +1,5 @@
+import CircularProgress from '@mui/material/CircularProgress'
+
 import CompCard from '~/components/CompCard'
 import Layout from '~/components/Layout'
 import SortFilterLayout from '~/components/SortFilterLayout'
@@ -6,15 +8,16 @@ import useModels from '~/hooks/useModels'
 import styles from './styles.module.css'
 
 function Models () {
-  const { models, filteredModels, searchModelsByName, filterModels } = useModels()
+  const { filteredModels, searchModelsByName, filterModels, isLoading } = useModels()
 
   return (
     <Layout>
       <SortFilterLayout search={searchModelsByName} filterModels={filterModels}>
         <div className={styles.models}>
-          {filteredModels.map((model, index) => (
-            <CompCard key={index} {...model} />
+          {!isLoading && filteredModels.map((model, index) => (
+            <CompCard key={index} model={model} />
           ))}
+          {isLoading && <div className={styles.loading_container}><CircularProgress /></div>}
         </div>
       </SortFilterLayout>
     </Layout>

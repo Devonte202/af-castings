@@ -1,3 +1,6 @@
+import eyeColors from '~/constants/eyeColors'
+import genders from '~/constants/genders'
+import hairColors from '~/constants/hairColors'
 import races from '~/constants/races'
 
 import cities from '../constants/cities'
@@ -35,6 +38,16 @@ const modelSchema = {
       options: {
         list: [
           ...races
+        ],
+      }
+    },
+    {
+      title: 'Gender',
+      name: 'gender',
+      type: 'string',
+      options: {
+        list: [
+          ...genders
         ],
       }
     },
@@ -78,12 +91,20 @@ const modelSchema = {
     {
       name: 'hairColor',
       type: 'string',
-      title: 'Hair color',
+      options: {
+        list: [
+          ...hairColors
+        ],
+      }
     },
     {
       name: 'eyeColor',
       type: 'string',
-      title: 'Eye color',
+      options: {
+        list: [
+          ...eyeColors
+        ],
+      }
     },
   ]
 }
